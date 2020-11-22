@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'PipelineTest-conn'
+    subscriptionId: '41860fc2-6fd3-4cf5-8b1a-35bd82315ceb'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'Testpipeline-rg'
+    location: 'Germany West Central'
+    templateLocation: 'Linked artifact'
+    csmFile: 'CreateWebApp/azuredeploy.json'
+    overrideParameters: '-projectName PipelineTest-repo -linkedTemplateUri https://raw.githubusercontent.com/tka-extern-pge/PipelineTest-repo/main/CreateWebApp/linkedStorageAccount.json?token=AR25YEKDFLKZTQSKICUJ5OS7XJDEW'
+    deploymentMode: 'Incremental'
