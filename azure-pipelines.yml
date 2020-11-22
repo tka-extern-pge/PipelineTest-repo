@@ -20,5 +20,5 @@ steps:
     location: 'Germany West Central'
     templateLocation: 'Linked artifact'
     csmFile: 'CreateWebApp/azuredeploy.json'
-    overrideParameters: '-projectName pipelinetest -linkedTemplateUri https://raw.githubusercontent.com/tka-extern-pge/PipelineTest-repo/main/CreateWebApp/linkedStorageAccount.json?token=AR25YEKDFLKZTQSKICUJ5OS7XJDEW'
+    overrideParameters: '-projectName pipelinetest -linkedTemplateUri https://raw.githubusercontent.com/tka-extern-pge/PipelineTest-repo/main/CreateWebApp/linkedStorageAccount.json?token=AR25YEKVR4QKDROET4JECOC7XJGZG'
     deploymentMode: 'Incremental'
